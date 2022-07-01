@@ -34,7 +34,7 @@ class Juego:
             else:
                 break
 
-        return True if qr[0].lower() in acceptance else False
+        return True if qr[0].lower() in acceptance else exit()
 
     def juega(self):
         playAgain = True
@@ -49,9 +49,10 @@ class Juego:
 
                 if self.tablero.hayJugadaGanadora():
                     print(f"\n    Felicidades jugador [ {jugador.token} ]! Has ganado")
+                    self.continuePlaying()
                     break
 
             if not self.tablero.hayJugadaGanadora():
-                print("\n    EMPATE: Habéis llegado al final sin que gane nadie.")
-
+                print("\n    EMPATE: Habéis llegado al final sin que gane nadie.")       
+                self.continuePlaying()
             print("\n    Gracias por volver a jugar, está claro que te estás divirtiendo")
